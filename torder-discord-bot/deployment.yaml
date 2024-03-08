@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: torder-discord-bot
+  namespace: torder
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: torder-discord-bot
+  template:
+    metadata:
+      labels:
+        app: torder-discord-bot
+    spec:
+      containers:
+      - name: torder-discord-bot
+        image: localhost:32000/torder-discord-bot:v1.0.1

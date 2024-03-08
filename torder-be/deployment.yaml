@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: torder-be
+  namespace: torder
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: torder-be
+  template:
+    metadata:
+      labels:
+        app: torder-be
+    spec:
+      containers:
+      - name: torder-be
+        image: localhost:32000/torder-be:v1.0.1
+        ports:
+        - containerPort: 8080

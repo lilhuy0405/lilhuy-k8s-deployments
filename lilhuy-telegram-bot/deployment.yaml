@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lilhuy-telegram-bot
+  namespace: lilhuy-telegram-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lilhuy-telegram-bot
+  template:
+    metadata:
+      labels:
+        app: lilhuy-telegram-bot
+    spec:
+      containers:
+      - name: lilhuy-telegram-bot
+        image: localhost:32000/lilhuy-telegram-bot
